@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  highwatch-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: highwatch-rag
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage:/app/storage
+      - ./credentials.json:/app/credentials.json:ro
+      - ./token.json:/app/token.json
+    env_file:
+      - .env
+    environment:
+      - STORAGE_DIR=/app/storage
+      - FAISS_INDEX_PATH=/app/storage/faiss_index
+      - DOCUMENTS_DB_PATH=/app/storage/documents.json
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
