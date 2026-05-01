@@ -3,6 +3,8 @@ Centralized configuration management using Pydantic Settings.
 All environment variables are loaded and validated here.
 """
 
+import os
+import json
 from functools import lru_cache
 from pathlib import Path
 from typing import Optional
@@ -65,21 +67,30 @@ class Settings(BaseSettings):
         return [fid.strip() for fid in self.google_drive_folder_ids.split(",") if fid.strip()]
 
     def ensure_storage_dirs(self) -> None:
-        """Create storage directories and reconstruct credentials if in cloud environment."""
+        """Create storage directories and reconstruct credentials/tokens from environment."""
         os.makedirs(self.storage_dir, exist_ok=True)
         
         # Cloud Deployment Helper: Reconstruct credentials.json from Environment Variable
         creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
         if creds_json and not os.path.exists(self.google_credentials_path):
             try:
-                import json
-                # Validate JSON format before writing
                 json_data = json.loads(creds_json)
                 with open(self.google_credentials_path, "w") as f:
                     json.dump(json_data, f, indent=2)
-                print(f"✅ Reconstructed credentials from environment at {self.google_credentials_path}")
+                print(f"✅ Reconstructed credentials from environment")
             except Exception as e:
-                print(f"❌ Failed to reconstruct credentials from env: {e}")
+                print(f"❌ Failed to reconstruct credentials: {e}")
+
+        # Cloud Deployment Helper: Reconstruct token.json from Environment Variable
+        token_json = os.environ.get("GOOGLE_TOKEN_JSON")
+        if token_json and not os.path.exists(self.google_token_path):
+            try:
+                token_data = json.loads(token_json)
+                with open(self.google_token_path, "w") as f:
+                    json.dump(token_data, f, indent=2)
+                print(f"✅ Reconstructed OAuth token from environment")
+            except Exception as e:
+                print(f"❌ Failed to reconstruct token: {e}")
         
         Path(self.faiss_index_path).parent.mkdir(parents=True, exist_ok=True)
 
