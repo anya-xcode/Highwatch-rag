@@ -94,7 +94,8 @@ async function handleSync() {
         const response = await fetch(`${API_BASE}/sync-drive`, { method: 'POST' });
         const data = await response.json();
         
-        showToast(data.message);
+        showToast(data.message, 'success');
+
         loadDocuments();
     } catch (error) {
         showToast('Sync failed. Please check your credentials.', 'error');
@@ -121,7 +122,8 @@ async function handleFileUpload(e) {
             body: formData
         });
         const data = await response.json();
-        showToast(data.message);
+        showToast(data.message, 'success');
+
         loadDocuments();
     } catch (error) {
         showToast('Upload failed', 'error');
@@ -179,12 +181,20 @@ function removeMessage(id) {
 }
 
 function showToast(message, type = 'info') {
-    toast.textContent = message;
-    toast.className = 'toast';
-    if (type === 'error') toast.style.borderLeftColor = '#ef4444';
-    else toast.style.borderLeftColor = 'var(--accent-primary)';
+    const icons = {
+        info: 'fa-info-circle',
+        success: 'fa-check-circle',
+        error: 'fa-exclamation-circle'
+    };
     
+    toast.innerHTML = `
+        <i class="fas ${icons[type]} toast-icon"></i>
+        <span>${message}</span>
+    `;
+    
+    toast.className = `toast ${type}`;
     toast.classList.remove('hidden');
+    
     setTimeout(() => {
         toast.classList.add('hidden');
     }, 4000);
