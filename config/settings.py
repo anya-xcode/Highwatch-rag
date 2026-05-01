@@ -65,8 +65,22 @@ class Settings(BaseSettings):
         return [fid.strip() for fid in self.google_drive_folder_ids.split(",") if fid.strip()]
 
     def ensure_storage_dirs(self) -> None:
-        """Create storage directories if they don't exist."""
-        Path(self.storage_dir).mkdir(parents=True, exist_ok=True)
+        """Create storage directories and reconstruct credentials if in cloud environment."""
+        os.makedirs(self.storage_dir, exist_ok=True)
+        
+        # Cloud Deployment Helper: Reconstruct credentials.json from Environment Variable
+        creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
+        if creds_json and not os.path.exists(self.google_credentials_path):
+            try:
+                import json
+                # Validate JSON format before writing
+                json_data = json.loads(creds_json)
+                with open(self.google_credentials_path, "w") as f:
+                    json.dump(json_data, f, indent=2)
+                print(f"✅ Reconstructed credentials from environment at {self.google_credentials_path}")
+            except Exception as e:
+                print(f"❌ Failed to reconstruct credentials from env: {e}")
+        
         Path(self.faiss_index_path).parent.mkdir(parents=True, exist_ok=True)
 
 
