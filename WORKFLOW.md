@@ -6,7 +6,7 @@ This document outlines the internal data flow and operational logic of the Highw
 
 ## 1. High-Level Architecture
 
-The system operates as a bridge between your **Google Drive** storage and an **LLM** (OpenAI/Gemini), using **FAISS** as a local high-performance memory.
+The system operates as a bridge between your **Google Drive** storage and an **LLM** (OpenAI/Gemini/Groq), using **FAISS** as a local high-performance memory.
 
 ```mermaid
 graph TD
