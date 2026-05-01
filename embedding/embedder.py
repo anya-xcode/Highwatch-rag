@@ -1,14 +1,14 @@
 """
 Embedding Service
-Generates vector embeddings for text using SentenceTransformers.
+Generates vector embeddings for text using FastEmbed (Memory Efficient).
 Supports batch processing and caching for efficiency.
 """
 
-from typing import Optional
-
+from typing import Optional, List
 import numpy as np
 import structlog
 from cachetools import LRUCache
+from fastembed import TextEmbedding
 
 from config.settings import get_settings
 
@@ -19,13 +19,12 @@ _embedding_cache: LRUCache = LRUCache(maxsize=10000)
 
 
 class EmbeddingService:
-    """Generates embeddings using SentenceTransformers models."""
+    """Generates embeddings using FastEmbed models."""
 
     def __init__(self, model_name: Optional[str] = None):
         settings = get_settings()
         self.model_name = model_name or settings.embedding_model
         self.batch_size = settings.embedding_batch_size
-        self.dimension = settings.embedding_dimension
         self._model = None
 
     @property
@@ -33,56 +32,35 @@ class EmbeddingService:
         """Lazy load the embedding model."""
         if self._model is None:
             logger.info("Loading embedding model", model=self.model_name)
-            from sentence_transformers import SentenceTransformer
-
-            self._model = SentenceTransformer(self.model_name)
-            # Update dimension based on actual model
-            self.dimension = self._model.get_sentence_embedding_dimension()
+            # TextEmbedding is much lighter than SentenceTransformer/Torch
+            self._model = TextEmbedding(model_name=self.model_name)
             logger.info(
                 "Embedding model loaded",
                 model=self.model_name,
-                dimension=self.dimension,
             )
         return self._model
 
     def embed_text(self, text: str) -> np.ndarray:
         """
         Generate embedding for a single text string.
-        
-        Args:
-            text: Input text to embed.
-            
-        Returns:
-            Embedding vector as numpy array.
         """
-        # Check cache
         cache_key = hash(text)
         if cache_key in _embedding_cache:
             return _embedding_cache[cache_key]
 
-        embedding = self.model.encode(
-            text,
-            show_progress_bar=False,
-            normalize_embeddings=True,
-        )
-        embedding = np.array(embedding, dtype=np.float32)
+        # FastEmbed returns a generator
+        embeddings = list(self.model.embed([text]))
+        embedding = np.array(embeddings[0], dtype=np.float32)
 
-        # Cache the result
         _embedding_cache[cache_key] = embedding
         return embedding
 
-    def embed_batch(self, texts: list[str]) -> np.ndarray:
+    def embed_batch(self, texts: List[str]) -> np.ndarray:
         """
         Generate embeddings for a batch of texts efficiently.
-        
-        Args:
-            texts: List of text strings to embed.
-            
-        Returns:
-            2D numpy array of embeddings (n_texts x dimension).
         """
         if not texts:
-            return np.array([], dtype=np.float32).reshape(0, self.dimension)
+            return np.array([], dtype=np.float32)
 
         # Split into cached and uncached
         cached_results = {}
@@ -106,19 +84,16 @@ class EmbeddingService:
                 to_encode=len(uncached_texts),
             )
             
-            new_embeddings = self.model.encode(
-                uncached_texts,
-                batch_size=self.batch_size,
-                show_progress_bar=len(uncached_texts) > 100,
-                normalize_embeddings=True,
-            )
-            new_embeddings = np.array(new_embeddings, dtype=np.float32)
+            # FastEmbed.embed returns a generator of numpy arrays
+            new_embeddings_gen = self.model.embed(uncached_texts, batch_size=self.batch_size)
+            new_embeddings = list(new_embeddings_gen)
 
             # Cache new embeddings
             for idx, text, emb in zip(uncached_indices, uncached_texts, new_embeddings):
                 cache_key = hash(text)
-                _embedding_cache[cache_key] = emb
-                cached_results[idx] = emb
+                emb_np = np.array(emb, dtype=np.float32)
+                _embedding_cache[cache_key] = emb_np
+                cached_results[idx] = emb_np
 
         # Assemble in order
         all_embeddings = np.array(
@@ -130,13 +105,5 @@ class EmbeddingService:
     def embed_query(self, query: str) -> np.ndarray:
         """
         Generate embedding for a search query.
-        Uses the same model but could apply query-specific preprocessing.
-        
-        Args:
-            query: Search query text.
-            
-        Returns:
-            Query embedding vector.
         """
-        # Optionally add query prefix for asymmetric models
         return self.embed_text(query)

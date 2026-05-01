@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     groq_model: str = "llama-3.1-70b-versatile"
 
     # --- Embedding ---
-    embedding_model: str = "all-MiniLM-L6-v2"
+    embedding_model: str = Field(default="BAAI/bge-small-en-v1.5", env="EMBEDDING_MODEL")
     embedding_batch_size: int = 64
     embedding_dimension: int = 384
 
