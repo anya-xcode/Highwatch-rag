@@ -10,6 +10,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from api.routes import router
 from config.settings import get_settings
@@ -80,6 +81,9 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    # Trust proxy headers for HTTPS on Render
+    app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
     # Register API routes
     app.include_router(router, prefix="/api/v1")
