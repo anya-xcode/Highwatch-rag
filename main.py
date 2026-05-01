@@ -3,10 +3,13 @@ Highwatch RAG - Main Application
 Personal ChatGPT over Google Drive
 """
 
+import os
 import structlog
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from api.routes import router
 from config.settings import get_settings
@@ -83,6 +86,18 @@ def create_app() -> FastAPI:
     
     # Also register routes at root level for convenience
     app.include_router(router)
+
+    # Mount Static Files (Frontend)
+    frontend_dir = os.path.join(os.path.dirname(__file__), "frontend")
+    os.makedirs(frontend_dir, exist_ok=True)
+    
+    # Root route for frontend
+    @app.get("/")
+    async def read_index():
+        return FileResponse(os.path.join(frontend_dir, "index.html"))
+
+    # Mount the rest of the frontend assets
+    app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
 
     return app
 

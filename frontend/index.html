@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highwatch RAG | Intelligent Knowledge Hub</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar: Knowledge Hub Control -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-brain"></i></div>
+                <span>Highwatch AI</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">KNOWLEDGE HUB</div>
+                <button id="sync-btn" class="nav-btn primary">
+                    <i class="fas fa-sync-alt"></i> Sync G-Drive
+                </button>
+                <div class="upload-zone" id="drop-zone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Drop files or click</span>
+                    <input type="file" id="file-input" hidden multiple>
+                </div>
+            </nav>
+
+            <div class="document-list-container">
+                <div class="nav-section">INDEXED DOCUMENTS <span id="doc-count">0</span></div>
+                <ul id="document-list" class="document-list">
+                    <!-- Documents will be listed here -->
+                    <div class="loading-docs">Loading knowledge...</div>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="dot pulse"></span>
+                    <span id="system-status">System Ready</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content: Chat Interface -->
+        <main class="chat-interface">
+            <header class="chat-header">
+                <h1>Intelligent Document Assistant</h1>
+                <div class="llm-badge"><i class="fas fa-microchip"></i> Groq Powered</div>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message system">
+                    <div class="avatar"><i class="fas fa-robot"></i></div>
+                    <div class="content">
+                        Hello! I am your AI Knowledge Assistant. I've indexed your documents and I'm ready to answer any questions about them. What would you like to know?
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="query-input" placeholder="Ask a question about your documents..." autocomplete="off">
+                    <button id="send-btn" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="input-hint">Answers are grounded in your specific document knowledge base.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals / Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
