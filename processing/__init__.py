@@ -1,4 +1,4 @@
-from processing.parser import DocumentParser
-from processing.chunker import TextChunker
+from processing.chunker import Chunk, TextChunker
+from processing.parser import DocumentParser, PageText
 
-__all__ = ["DocumentParser", "TextChunker"]
+__all__ = ["Chunk", "DocumentParser", "PageText", "TextChunker"]

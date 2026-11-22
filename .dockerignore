@@ -1,0 +1,30 @@
+# Secrets — must never be baked into an image
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+secrets/
+*.pem
+*.key
+
+# Local data
+storage/
+.fastembed_cache/
+
+# Development files
+.git
+.github
+.venv
+venv
+env
+__pycache__/
+*.py[cod]
+.pytest_cache
+.coverage
+htmlcov
+tests/
+.vscode
+.idea
+docker-compose.yml
+*.md

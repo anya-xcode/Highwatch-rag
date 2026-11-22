@@ -2,22 +2,25 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyc
 
 # Virtual environment
 venv/
 .venv/
 env/
 
-# Environment variables
+# Environment variables / secrets (never commit)
 .env
-
-# Google credentials
+.env.*
+!.env.example
 credentials.json
 token.json
+secrets/
 
-# Storage
+# Storage (index, uploads, Drive downloads)
 storage/
+
+# Embedding model cache
+.fastembed_cache/
 
 # IDE
 .vscode/
@@ -28,9 +31,6 @@ storage/
 # OS
 .DS_Store
 Thumbs.db
-
-# Docker
-.dockerignore
 
 # Testing
 .pytest_cache/

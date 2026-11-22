@@ -1,0 +1,33 @@
+# Local, $0 deployment. Data lives in the named volume "highwatch-storage"
+# and survives container restarts and rebuilds.
+#
+#   cp .env.example .env      # then add GROQ_API_KEY
+#   mkdir -p secrets          # optional: credentials.json / token.json for Drive
+#   docker compose up --build
+#
+# Remove everything (including indexed data): docker compose down -v
+services:
+  highwatch-rag:
+    build: .
+    image: highwatch-rag:local
+    container_name: highwatch-rag
+    ports:
+      # Bound to localhost only; not reachable from other machines.
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - .env
+    environment:
+      STORAGE_DIR: /app/storage
+      FAISS_INDEX_PATH: /app/storage/faiss_index
+      DOCUMENTS_DB_PATH: /app/storage/documents.json
+      GOOGLE_CREDENTIALS_PATH: /app/secrets/credentials.json
+      GOOGLE_TOKEN_PATH: /app/secrets/token.json
+      GOOGLE_OAUTH_INTERACTIVE: "false"
+      STORAGE_BACKEND: local
+    volumes:
+      - highwatch-storage:/app/storage
+      - ./secrets:/app/secrets
+    restart: unless-stopped
+
+volumes:
+  highwatch-storage:

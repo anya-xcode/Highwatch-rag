@@ -1,0 +1,70 @@
+# Runs on GitHub-hosted runners, which are free for public repositories.
+# No secrets are used and no cloud resources are created.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      EMBEDDING_CACHE_DIR: .fastembed_cache
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Cache embedding model
+        uses: actions/cache@v4
+        with:
+          path: .fastembed_cache
+          key: fastembed-${{ hashFiles('requirements.txt') }}-bge-small-en-v1.5
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Unit tests
+        run: pytest -m "not integration and not live"
+
+      - name: Integration tests (real FastEmbed model)
+        run: pytest -m integration
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t highwatch-rag:ci .
+
+      - name: Smoke test
+        run: |
+          docker run -d --name app -p 8000:8000 -e LLM_PROVIDER=extractive highwatch-rag:ci
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/health; then break; fi
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:8000/api/v1/health/ready
+          docker inspect --format '{{.State.Health.Status}}' app
+          docker logs app
+
+      - name: Image must not contain secrets
+        run: |
+          docker run --rm highwatch-rag:ci sh -c 'ls -a /app; test ! -e /app/.env && test ! -e /app/credentials.json && test ! -e /app/token.json'
