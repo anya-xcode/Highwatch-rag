@@ -47,8 +47,12 @@ def test_ready_reports_missing_llm_key_as_degraded(make_client, env):
 
 def test_frontend_served(make_client):
     client, _ = make_client()
-    assert "Highwatch" in client.get("/").text
-    assert client.get("/static/app.js").status_code == 200
+    page = client.get("/")
+    assert "Highwatch" in page.text
+    assert page.headers["cache-control"] == "no-cache"  # browsers must not run a stale UI
+    script = client.get("/static/app.js")
+    assert script.status_code == 200 and script.headers["cache-control"] == "no-cache"
+    assert "cache-control" not in client.get("/api/v1/health").headers
 
 
 # ── Upload ──────────────────────────────────────────────────

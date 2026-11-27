@@ -361,6 +361,8 @@ async def upload_document(file: UploadFile = File(...)):
     try:
         outcome, record = await run_in_threadpool(process)
     except (DocumentParseError, ValueError) as e:
+        cause = e.__cause__
+        logger.warning("Upload rejected", file=file_name, error=str(e), cause=repr(cause) if cause else None)
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:  # noqa: BLE001
         logger.error("Upload failed", file=file_name, error=str(e))

@@ -136,6 +136,10 @@ def create_app() -> FastAPI:
         duration_ms = round((time.perf_counter() - start) * 1000, 1)
         response.headers["X-Request-ID"] = request_id
         response.headers["X-Content-Type-Options"] = "nosniff"
+        if request.url.path == "/" or request.url.path.startswith("/static/"):
+            # Revalidate the UI on every load (ETag makes this a cheap 304), so a
+            # browser never keeps running an old index.html, style.css or app.js.
+            response.headers.setdefault("Cache-Control", "no-cache")
         log = logger.debug if request.url.path.startswith(QUIET_PATHS) else logger.info
         log(
             "request",

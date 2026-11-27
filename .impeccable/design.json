@@ -1,0 +1,749 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-24T19:17:00Z",
+  "title": "Design System: Highwatch RAG",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "Action Blue",
+        "canonical": "#2f5bd3",
+        "tonalRamp": [
+          "#020823",
+          "#091d58",
+          "#16358e",
+          "#2a52c1",
+          "#4473ed",
+          "#6e9aff",
+          "#a8c4ff",
+          "#e7efff"
+        ]
+      },
+      "blue-deep": {
+        "role": "primary",
+        "displayName": "Pressed Blue",
+        "canonical": "#2750c0",
+        "tonalRamp": [
+          "#020922",
+          "#0a1e55",
+          "#18378a",
+          "#2c54bc",
+          "#4675e7",
+          "#6e9aff",
+          "#a8c4ff",
+          "#e7efff"
+        ]
+      },
+      "blue-wash": {
+        "role": "primary",
+        "displayName": "Blue Wash",
+        "canonical": "#e2e9fb",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#21242b",
+          "#3b404b",
+          "#585d6c",
+          "#777d8d",
+          "#989eaf",
+          "#bec4d3",
+          "#eaeefa"
+        ]
+      },
+      "hl-1": {
+        "role": "secondary",
+        "displayName": "Highlighter Yellow",
+        "canonical": "#fff0a0",
+        "tonalRamp": [
+          "#0e0b00",
+          "#2b2400",
+          "#4a4000",
+          "#6b5e0d",
+          "#8c7e2e",
+          "#ae9f53",
+          "#d2c683",
+          "#f9f0be"
+        ]
+      },
+      "hl-2": {
+        "role": "secondary",
+        "displayName": "Highlighter Mint",
+        "canonical": "#c9f0d3",
+        "tonalRamp": [
+          "#060d08",
+          "#18291d",
+          "#2d4734",
+          "#46664f",
+          "#64876e",
+          "#85a98e",
+          "#adceb5",
+          "#ddf6e3"
+        ]
+      },
+      "hl-3": {
+        "role": "secondary",
+        "displayName": "Highlighter Rose",
+        "canonical": "#ffd9e4",
+        "tonalRamp": [
+          "#10090b",
+          "#2e1f24",
+          "#50383f",
+          "#72545d",
+          "#94737d",
+          "#b6949e",
+          "#dabac4",
+          "#ffe7ee"
+        ]
+      },
+      "hl-4": {
+        "role": "secondary",
+        "displayName": "Highlighter Sky",
+        "canonical": "#d6e6ff",
+        "tonalRamp": [
+          "#080b10",
+          "#1e242f",
+          "#364050",
+          "#525e72",
+          "#707e94",
+          "#919fb6",
+          "#b8c5da",
+          "#e5efff"
+        ]
+      },
+      "hl-5": {
+        "role": "secondary",
+        "displayName": "Highlighter Peach",
+        "canonical": "#ffe3c7",
+        "tonalRamp": [
+          "#0f0a05",
+          "#2d2115",
+          "#4e3c2a",
+          "#6f5942",
+          "#91785f",
+          "#b39980",
+          "#d7c0a8",
+          "#fdebd9"
+        ]
+      },
+      "ok": {
+        "role": "tertiary",
+        "displayName": "Ready Green",
+        "canonical": "#1f7a46",
+        "tonalRamp": [
+          "#010f05",
+          "#002d14",
+          "#024d27",
+          "#1b6f3f",
+          "#3b915c",
+          "#60b37d",
+          "#8fd8a5",
+          "#c9fed7"
+        ]
+      },
+      "amber": {
+        "role": "tertiary",
+        "displayName": "Amber",
+        "canonical": "#8a5a00",
+        "tonalRamp": [
+          "#130900",
+          "#341f00",
+          "#583800",
+          "#7f5303",
+          "#a47228",
+          "#c6944f",
+          "#e9bb7f",
+          "#ffebd2"
+        ]
+      },
+      "amber-ink": {
+        "role": "tertiary",
+        "displayName": "Amber Ink",
+        "canonical": "#6b4700",
+        "tonalRamp": [
+          "#120901",
+          "#322002",
+          "#553a0a",
+          "#79561f",
+          "#9c753b",
+          "#be975e",
+          "#e2be8b",
+          "#ffebd0"
+        ]
+      },
+      "amber-wash": {
+        "role": "tertiary",
+        "displayName": "Amber Wash",
+        "canonical": "#fdf3dc",
+        "tonalRamp": [
+          "#0d0b07",
+          "#28241a",
+          "#453f30",
+          "#655d4a",
+          "#857c68",
+          "#a79e89",
+          "#ccc3b0",
+          "#f4eedf"
+        ]
+      },
+      "amber-line": {
+        "role": "tertiary",
+        "displayName": "Amber Line",
+        "canonical": "#efd9a6",
+        "tonalRamp": [
+          "#0f0b03",
+          "#2c230b",
+          "#4c3e1a",
+          "#6d5b2f",
+          "#8f7b4b",
+          "#b19c6c",
+          "#d5c297",
+          "#fbedcd"
+        ]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Red",
+        "canonical": "#b42318",
+        "tonalRamp": [
+          "#1d0101",
+          "#4b0201",
+          "#7a0a05",
+          "#a92419",
+          "#d34536",
+          "#f96b59",
+          "#ffab9e",
+          "#ffe9e5"
+        ]
+      },
+      "red-deep": {
+        "role": "tertiary",
+        "displayName": "Red Deep",
+        "canonical": "#962017",
+        "tonalRamp": [
+          "#1b0302",
+          "#460b07",
+          "#731b14",
+          "#9f3328",
+          "#c95243",
+          "#ee7565",
+          "#ffab9e",
+          "#ffe9e5"
+        ]
+      },
+      "red-ink": {
+        "role": "tertiary",
+        "displayName": "Red Ink",
+        "canonical": "#8a1c12",
+        "tonalRamp": [
+          "#1a0402",
+          "#440e08",
+          "#711f16",
+          "#9c372b",
+          "#c55546",
+          "#ea7868",
+          "#ffab9d",
+          "#ffe9e5"
+        ]
+      },
+      "red-wash": {
+        "role": "tertiary",
+        "displayName": "Red Wash",
+        "canonical": "#fdecea",
+        "tonalRamp": [
+          "#0d0a0a",
+          "#292221",
+          "#473d3c",
+          "#675a58",
+          "#887978",
+          "#aa9a99",
+          "#cfc0bf",
+          "#f6ecea"
+        ]
+      },
+      "red-line": {
+        "role": "tertiary",
+        "displayName": "Red Line",
+        "canonical": "#f4c7c2",
+        "tonalRamp": [
+          "#110908",
+          "#311e1d",
+          "#543734",
+          "#77534f",
+          "#9a726d",
+          "#bc938e",
+          "#e0bab5",
+          "#ffe9e6"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "White Ground",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1b1d21",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#232426",
+          "#3e4043",
+          "#5b5e62",
+          "#7b7d82",
+          "#9c9ea4",
+          "#c2c4c9",
+          "#edeef2"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#40444b",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222428",
+          "#3d4045",
+          "#5a5e65",
+          "#797d85",
+          "#9a9fa7",
+          "#c0c4cc",
+          "#ebeff4"
+        ]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Mute Grey",
+        "canonical": "#6a6f78",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222428",
+          "#3c4046",
+          "#595e66",
+          "#787d87",
+          "#999fa8",
+          "#bfc4cd",
+          "#ebeff5"
+        ]
+      },
+      "excerpt-ink": {
+        "role": "neutral",
+        "displayName": "Excerpt Ink",
+        "canonical": "#2b2e34",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222427",
+          "#3d4045",
+          "#5a5e64",
+          "#7a7d84",
+          "#9b9ea6",
+          "#c1c4cb",
+          "#eceef4"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e7e8ea",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242425",
+          "#3f4041",
+          "#5d5e5f",
+          "#7c7d7f",
+          "#9d9ea0",
+          "#c3c4c6",
+          "#eeeef0"
+        ]
+      },
+      "line-2": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#d9dbdf",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#232426",
+          "#3e4042",
+          "#5c5e61",
+          "#7b7d81",
+          "#9d9ea2",
+          "#c2c4c7",
+          "#edeef1"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Library Grey",
+        "canonical": "#f7f7f8",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5e",
+          "#7d7d7e",
+          "#9e9e9f",
+          "#c4c4c5",
+          "#eeeeef"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover Grey",
+        "canonical": "#eff0f2",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242425",
+          "#3f4041",
+          "#5d5e5f",
+          "#7c7d7f",
+          "#9d9ea0",
+          "#c3c4c6",
+          "#eeeef0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The current question heading and the intro heading; 20px at <=820px. The largest text in the app."
+      },
+      "answer": {
+        "displayName": "Answer",
+        "purpose": "Answer text in the reading column; 16.5px in the intro example, 16px at <=820px."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The intro paragraph in Soft Ink, max 64ch."
+      },
+      "refusal": {
+        "displayName": "Refusal",
+        "purpose": "The calm 'not in your documents' reply, in Soft Ink."
+      },
+      "excerpt": {
+        "displayName": "Excerpt",
+        "purpose": "Text quoted from a document inside an opened source row. The only serif use."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The Library heading."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "The Sources heading."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "'Highwatch RAG' beside the logo in the top bar."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base text with tabular numerals: source rows, notices, toasts."
+      },
+      "input": {
+        "displayName": "Input",
+        "purpose": "The composer question field."
+      },
+      "item": {
+        "displayName": "Item",
+        "purpose": "Document names in the library."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Button labels, link buttons, the drop-zone instruction."
+      },
+      "label-strong": {
+        "displayName": "Label Strong",
+        "purpose": "The Ask button label."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Counts, hints, library notes, the budget line, the remove-confirmation line."
+      },
+      "meta-sm": {
+        "displayName": "Meta Small",
+        "purpose": "The document details line in the library."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "The Example tag on the intro card."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "Citation numerals in answers and the library."
+      },
+      "chip-source": {
+        "displayName": "Chip Source",
+        "purpose": "Citation numerals in the sources list."
+      }
+    },
+    "shadows": [
+      {
+        "name": "composer-lift",
+        "value": "0 1px 2px rgba(27, 29, 33, 0.04), 0 8px 24px -10px rgba(27, 29, 33, 0.14)",
+        "purpose": "The composer field at rest; replaced by the focus wash ring on focus."
+      },
+      {
+        "name": "toast-float",
+        "value": "0 10px 30px -12px rgba(27, 29, 33, 0.3)",
+        "purpose": "The toast only."
+      },
+      {
+        "name": "button-contact",
+        "value": "0 1px 2px rgba(27, 29, 33, 0.05)",
+        "purpose": "Secondary buttons at rest; removed when disabled."
+      },
+      {
+        "name": "focus-wash-ring",
+        "value": "0 0 0 3px #e2e9fb",
+        "purpose": "Composer field focus-within and the API-key input focus, with an Action Blue border. Elsewhere focus is a 2px Action Blue outline offset 2px."
+      },
+      {
+        "name": "lit-chip-ring",
+        "value": "0 0 0 1.5px #1b1d21",
+        "purpose": "A citation chip that is hovered or lit, in the answer, the sources list or the library."
+      },
+      {
+        "name": "lit-mark-ring",
+        "value": "0 0 0 2px var(--c), 0 0 0 3px rgba(27, 29, 33, 0.25)",
+        "purpose": "A lit highlight mark grows 2px of its own ink (--c) and takes a faint ink rim."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Easing for the highlight swipe, the toast rise and the pending sweep."
+      },
+      {
+        "name": "highlight-swipe",
+        "value": "background-size 0% 100% -> 100% 100%, 520ms cubic-bezier(0.16, 1, 0.3, 1), delay 120ms + 140ms x mark index",
+        "purpose": "The one authored motion: highlight inks grow left to right, in reading order, when an answer lands (and once on the intro example at load). The class is removed after 800ms + 140ms x mark count. Off under prefers-reduced-motion: marks show at rest."
+      },
+      {
+        "name": "state-change",
+        "value": "120ms ease",
+        "purpose": "Functional colour, border, opacity and ring transitions on controls, rows and chips."
+      },
+      {
+        "name": "chevron-flip",
+        "value": "transform rotate(180deg), 160ms ease",
+        "purpose": "Source-row chevron when a source opens."
+      },
+      {
+        "name": "toast-in",
+        "value": "translateY(6px) + opacity 0 -> none, 240ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Toast arrival."
+      },
+      {
+        "name": "spin",
+        "value": "rotate 360deg linear infinite; 900ms (Drive sync icon), 1.1s (working upload, processing document)",
+        "purpose": "Busy indicators."
+      },
+      {
+        "name": "pending-sweep",
+        "value": "translateX(-100%) -> translateX(250%), 1.3s cubic-bezier(0.16, 1, 0.3, 1) infinite",
+        "purpose": "The Highlighter Yellow segment inside the 96px searching bar."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce) { animation: none; transition: none; scroll-behavior: auto }",
+        "purpose": "Everything stops; highlights appear at rest and smooth scrolling becomes instant."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-desktop",
+        "value": "max-width: 1100px",
+        "purpose": "Library narrows to 272px; in source rows the file name stacks above its location (13px)."
+      },
+      {
+        "name": "single-column",
+        "value": "max-width: 820px",
+        "purpose": "Questions first: sticky top bar, thread, sticky composer, then the library. Page scrolls; model pill shows provider only; Enter hint hidden; question 20px, answer 16px; source rows wrap; toast full width 96px up; remove icon always visible."
+      },
+      {
+        "name": "no-hover",
+        "value": "hover: none",
+        "purpose": "Remove icon always visible on document rows."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ask Button",
+      "kind": "button",
+      "refersTo": "ask-button",
+      "description": "The primary action and the only solid blue fill on screen; sits inside the composer field. Disabled while a question is being answered.",
+      "html": "<button type=\"button\" class=\"ds-ask\">Ask<svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 13V3.5M4 7.5l4-4 4 4\"/></svg></button> <button type=\"button\" class=\"ds-ask\" disabled>Asking…<svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 13V3.5M4 7.5l4-4 4 4\"/></svg></button>",
+      "css": ".ds-ask { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px 0 16px; border: 0; border-radius: 8px; background: var(--blue, #2f5bd3); color: #fff; font: 600 14px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; cursor: pointer; transition: background-color 120ms ease; } .ds-ask:hover { background: var(--blue-deep, #2750c0); } .ds-ask:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; } .ds-ask:disabled { background: var(--blue-wash, #e2e9fb); color: var(--blue-deep, #2750c0); cursor: default; } .ds-ask .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Every non-primary action: Choose files, Sync Google Drive, Use key, Keep. White with a strong hairline and a 1px contact shadow.",
+      "html": "<button type=\"button\" class=\"ds-btn\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M13.5 8a5.5 5.5 0 0 1-9.6 3.7M2.5 8a5.5 5.5 0 0 1 9.6-3.7M12.5 1.5v3h-3M3.5 14.5v-3h3\"/></svg><span>Sync Google Drive</span></button> <button type=\"button\" class=\"ds-btn\">Choose files</button> <button type=\"button\" class=\"ds-btn\" disabled><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M13.5 8a5.5 5.5 0 0 1-9.6 3.7M2.5 8a5.5 5.5 0 0 1 9.6-3.7M12.5 1.5v3h-3M3.5 14.5v-3h3\"/></svg><span>Syncing…</span></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 32px; padding: 0 12px; border: 1px solid var(--line-2, #d9dbdf); border-radius: 8px; background: #fff; color: var(--ink, #1b1d21); font: 600 13px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; box-shadow: 0 1px 2px rgba(27, 29, 33, 0.05); cursor: pointer; transition: background-color 120ms ease, border-color 120ms ease; } .ds-btn:hover { background: var(--hover, #eff0f2); } .ds-btn:active { background: var(--line, #e7e8ea); } .ds-btn:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; } .ds-btn:disabled { color: var(--mute, #6a6f78); background: var(--panel, #f7f7f8); box-shadow: none; cursor: not-allowed; } .ds-btn .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; color: var(--ink-2, #40444b); }"
+    },
+    {
+      "name": "Inline Remove Confirmation",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive confirm shown inside the document row itself; the only red fill in the app. Keep or Escape closes it and returns focus to the trash icon.",
+      "html": "<div class=\"ds-confirm\" role=\"group\" aria-label=\"Remove refund-policy.pdf?\"><span>Remove from the library?</span><button type=\"button\" class=\"ds-cbtn ds-danger\">Remove</button><button type=\"button\" class=\"ds-cbtn\">Keep</button></div>",
+      "css": ".ds-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; padding: 10px 12px; background: var(--panel, #f7f7f8); color: var(--ink, #1b1d21); font: 600 12.5px/1.5 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; } .ds-confirm span { flex-basis: 100%; } .ds-cbtn { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border: 1px solid var(--line-2, #d9dbdf); border-radius: 8px; background: #fff; color: var(--ink, #1b1d21); font: 600 12.5px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; box-shadow: 0 1px 2px rgba(27, 29, 33, 0.05); cursor: pointer; transition: background-color 120ms ease, border-color 120ms ease; } .ds-cbtn:hover { background: var(--hover, #eff0f2); } .ds-cbtn:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; } .ds-cbtn.ds-danger { background: var(--red, #b42318); border-color: var(--red, #b42318); color: #fff; } .ds-cbtn.ds-danger:hover { background: #962017; border-color: #962017; }"
+    },
+    {
+      "name": "Composer",
+      "kind": "input",
+      "refersTo": "composer-field",
+      "description": "The question box pinned under the thread: one of only two lifted surfaces. Focus swaps the lift for a blue border and a 3px blue-wash ring.",
+      "html": "<div class=\"ds-composer\"><div class=\"ds-field\"><input class=\"ds-q\" type=\"text\" placeholder=\"Ask about your documents\" aria-label=\"Question\"><button type=\"button\" class=\"ds-field-ask\">Ask<svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 13V3.5M4 7.5l4-4 4 4\"/></svg></button></div><div class=\"ds-hint\"><span class=\"ds-hint-scope\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><ellipse cx=\"8\" cy=\"4\" rx=\"5\" ry=\"2\"/><path d=\"M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2\"/></svg><span>Searches 3 documents · 16 chunks</span></span><span class=\"ds-hint-key\"><kbd class=\"ds-kbd\">Enter</kbd> to ask</span></div></div>",
+      "css": ".ds-composer { max-width: 720px; font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; } .ds-field { display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 9px 0 18px; border: 1px solid var(--line-2, #d9dbdf); border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(27, 29, 33, 0.04), 0 8px 24px -10px rgba(27, 29, 33, 0.14); transition: border-color 120ms ease, box-shadow 120ms ease; } .ds-field:focus-within { border-color: var(--blue, #2f5bd3); box-shadow: 0 0 0 3px var(--blue-wash, #e2e9fb); } .ds-q { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; color: var(--ink, #1b1d21); font: 400 16px/1.5 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; caret-color: var(--blue, #2f5bd3); } .ds-q::placeholder { color: var(--mute, #6a6f78); } .ds-field-ask { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 14px 0 16px; border: 0; border-radius: 8px; background: var(--blue, #2f5bd3); color: #fff; font: 600 14px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; cursor: pointer; transition: background-color 120ms ease; } .ds-field-ask:hover { background: var(--blue-deep, #2750c0); } .ds-field-ask:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; } .ds-composer .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-hint { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; padding: 0 4px; font-size: 12.5px; color: var(--mute, #6a6f78); } .ds-hint-scope, .ds-hint-key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; } .ds-kbd { font: 600 11px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; padding: 3px 6px; border: 1px solid var(--line-2, #d9dbdf); border-radius: 4px; background: var(--panel, #f7f7f8); color: var(--ink-2, #40444b); }"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "top-bar",
+      "description": "56px strip: logo mark and wordmark left; model pill and readiness status right; one hairline beneath.",
+      "html": "<header class=\"ds-top\"><div class=\"ds-brand\"><svg class=\"ds-logo\" width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" aria-hidden=\"true\"><rect width=\"28\" height=\"28\" rx=\"7\" class=\"ds-logo-sq\"/><rect x=\"6.5\" y=\"12\" width=\"15\" height=\"4.5\" rx=\"2.2\" class=\"ds-logo-ink\" transform=\"rotate(-6 14 14)\"/><path d=\"M10 8v12M18 8v12\" stroke=\"#fff\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></svg><span class=\"ds-wordmark\">Highwatch RAG</span></div><div class=\"ds-meta\"><span class=\"ds-pill\" title=\"No language model: answers quote the most relevant passages.\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"8\" height=\"8\" rx=\"1.5\"/><path d=\"M6.5 1.5V4M9.5 1.5V4M6.5 12v2.5M9.5 12v2.5M1.5 6.5H4M1.5 9.5H4M12 6.5h2.5M12 9.5h2.5\"/></svg><span><b>Extractive</b> · no AI model</span></span><span class=\"ds-status\" data-state=\"ready\"><i class=\"ds-dot\"></i>Ready</span><span class=\"ds-status\" data-state=\"degraded\"><i class=\"ds-dot\"></i>Degraded</span><span class=\"ds-status\" data-state=\"not_ready\"><i class=\"ds-dot\"></i>Offline</span></div></header>",
+      "css": ".ds-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; padding: 0 20px 0 18px; border-bottom: 1px solid var(--line, #e7e8ea); background: #fff; font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; } .ds-brand { display: flex; align-items: center; gap: 10px; } .ds-logo-sq { fill: var(--ink, #1b1d21); } .ds-logo-ink { fill: var(--hl-1, #fff0a0); } .ds-wordmark { font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink, #1b1d21); white-space: nowrap; } .ds-meta { display: flex; align-items: center; gap: 8px; font-size: 13px; } .ds-pill { display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 11px 0 9px; border: 1px solid var(--line, #e7e8ea); border-radius: 8px; color: var(--mute, #6a6f78); white-space: nowrap; } .ds-pill b { color: var(--ink, #1b1d21); font-weight: 600; } .ds-pill .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-status { display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 6px 0 8px; color: var(--ink-2, #40444b); font-weight: 600; white-space: nowrap; } .ds-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line-2, #d9dbdf); } .ds-status[data-state='ready'] .ds-dot { background: var(--ok, #1f7a46); } .ds-status[data-state='degraded'] { color: var(--amber, #8a5a00); } .ds-status[data-state='degraded'] .ds-dot { background: #d89b1a; } .ds-status[data-state='not_ready'] { color: var(--red, #b42318); } .ds-status[data-state='not_ready'] .ds-dot { background: var(--red, #b42318); }"
+    },
+    {
+      "name": "Citation Chips",
+      "kind": "chip",
+      "refersTo": "citation-chip",
+      "description": "Numbered tabs in the five highlighter inks with the irregular swipe radius; citation n uses ink ((n - 1) % 5) + 1, so 6 is yellow again. Sources-list size, on-ink tint and lit ring shown.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip\" data-c=\"1\">1</span><span class=\"ds-chip\" data-c=\"2\">2</span><span class=\"ds-chip\" data-c=\"3\">3</span><span class=\"ds-chip\" data-c=\"4\">4</span><span class=\"ds-chip\" data-c=\"5\">5</span><span class=\"ds-chip\" data-c=\"1\">6</span><span class=\"ds-sep\"></span><span class=\"ds-chip ds-chip-src\" data-c=\"3\">3</span><span class=\"ds-chip ds-lit\" data-c=\"2\">2</span><mark class=\"ds-hl\" data-c=\"4\">on its own ink<span class=\"ds-chip ds-on-ink\" data-c=\"4\">4</span></mark></div>",
+      "css": "[data-c=\"1\"] { --c: var(--hl-1, #fff0a0); } [data-c=\"2\"] { --c: var(--hl-2, #c9f0d3); } [data-c=\"3\"] { --c: var(--hl-3, #ffd9e4); } [data-c=\"4\"] { --c: var(--hl-4, #d6e6ff); } [data-c=\"5\"] { --c: var(--hl-5, #ffe3c7); } .ds-chip { display: inline-grid; place-items: center; min-width: 19px; height: 16px; padding: 0 4px; border-radius: 5px 9px 6px 10px / 9px 5px 10px 6px; font: 700 10.5px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #1b1d21); background: var(--c, var(--hl-1, #fff0a0)); flex: none; transition: box-shadow 120ms ease; } .ds-chip.ds-on-ink { background: rgba(27, 29, 33, 0.1); } .ds-hl { color: inherit; padding: 0.07em 0.2em 0.11em; border-radius: 0.35em 0.7em 0.4em 0.75em / 0.55em 0.35em 0.65em 0.4em; background-color: transparent; background-image: linear-gradient(var(--c, var(--hl-1, #fff0a0)), var(--c, var(--hl-1, #fff0a0))); background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: box-shadow 120ms ease; } .ds-chips { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font: 400 14px/1.5 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; color: var(--ink, #1b1d21); } .ds-sep { width: 12px; } .ds-chip-src { min-width: 24px; height: 20px; font-size: 12px; } .ds-chip.ds-lit, .ds-chip:hover { box-shadow: 0 0 0 1.5px var(--ink, #1b1d21); } .ds-hl .ds-chip { margin-left: 5px; vertical-align: 1px; }"
+    },
+    {
+      "name": "Highlighted Answer",
+      "kind": "custom",
+      "refersTo": "highlight-mark",
+      "description": "Signature component. Each claim is marked in its first citation's ink from the first word of the phrase it shares with the source through to its chip; lead-in words stay plain. Inks swipe in left to right on arrival; hover lights a claim.",
+      "html": "<div class=\"ds-ex\"><h2 class=\"ds-qh\">How long do customers have to request a refund?</h2><p class=\"ds-answer\">Customers can request <mark class=\"ds-hl\" data-c=\"1\">a full refund within 30 days<a class=\"ds-cite\" href=\"#\" aria-label=\"Source 1\"><span class=\"ds-chip ds-on-ink\" data-c=\"1\">1</span></a></mark>, and unused items can be <mark class=\"ds-hl\" data-c=\"2\">exchanged within 45 days<a class=\"ds-cite\" href=\"#\" aria-label=\"Source 2\"><span class=\"ds-chip ds-on-ink\" data-c=\"2\">2</span></a></mark>.</p><p class=\"ds-budget\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><ellipse cx=\"8\" cy=\"4\" rx=\"5\" ry=\"2\"/><path d=\"M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2\"/></svg><span>Searched 3 documents · 16 chunks</span></p></div>",
+      "css": "[data-c=\"1\"] { --c: var(--hl-1, #fff0a0); } [data-c=\"2\"] { --c: var(--hl-2, #c9f0d3); } [data-c=\"3\"] { --c: var(--hl-3, #ffd9e4); } [data-c=\"4\"] { --c: var(--hl-4, #d6e6ff); } [data-c=\"5\"] { --c: var(--hl-5, #ffe3c7); } .ds-chip { display: inline-grid; place-items: center; min-width: 19px; height: 16px; padding: 0 4px; border-radius: 5px 9px 6px 10px / 9px 5px 10px 6px; font: 700 10.5px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #1b1d21); background: var(--c, var(--hl-1, #fff0a0)); flex: none; transition: box-shadow 120ms ease; } .ds-chip.ds-on-ink { background: rgba(27, 29, 33, 0.1); } .ds-hl { color: inherit; padding: 0.07em 0.2em 0.11em; border-radius: 0.35em 0.7em 0.4em 0.75em / 0.55em 0.35em 0.65em 0.4em; background-color: transparent; background-image: linear-gradient(var(--c, var(--hl-1, #fff0a0)), var(--c, var(--hl-1, #fff0a0))); background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: box-shadow 120ms ease; } .ds-ex { max-width: 720px; font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; color: var(--ink, #1b1d21); font-variant-numeric: tabular-nums; } .ds-qh { margin: 0; font-size: 23px; line-height: 1.3; font-weight: 600; letter-spacing: -0.012em; text-wrap: balance; } .ds-answer { margin: 16px 0 0; font-size: 17px; line-height: 1.65; } .ds-cite { text-decoration: none; } .ds-cite .ds-chip { margin-left: 5px; vertical-align: 1px; } .ds-cite:hover .ds-chip, .ds-cite:focus-visible .ds-chip { box-shadow: 0 0 0 1.5px var(--ink, #1b1d21); } .ds-answer .ds-hl:hover { box-shadow: 0 0 0 2px var(--c), 0 0 0 3px rgba(27, 29, 33, 0.25); cursor: pointer; } .ds-answer .ds-hl { animation: ds-swipe 520ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 120ms; } .ds-answer .ds-hl:nth-of-type(2) { animation-delay: 260ms; } .ds-answer .ds-hl:nth-of-type(3) { animation-delay: 400ms; } @keyframes ds-swipe { from { background-size: 0% 100%; } to { background-size: 100% 100%; } } @media (prefers-reduced-motion: reduce) { .ds-answer .ds-hl { animation: none; } .ds-hl, .ds-chip { transition: none; } } .ds-budget { display: flex; align-items: center; gap: 6px; margin: 12px 0 0; font-size: 12.5px; color: var(--mute, #6a6f78); } .ds-budget .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Sources List",
+      "kind": "card",
+      "refersTo": "sources-list",
+      "description": "Numbered disclosure rows (chip, file, location, relevance, chevron). The open row quotes the excerpt in Source Serif 4 and marks only the phrase shared with the claim, in the same ink.",
+      "html": "<div class=\"ds-srcs\"><div class=\"ds-srcs-head\"><h3>Sources</h3><span>2 · 1 document</span></div><ol class=\"ds-sources\"><li><details class=\"ds-src\" open><summary><span class=\"ds-chip ds-chip-src\" data-c=\"1\">1</span><span class=\"ds-src-title\"><span class=\"ds-file\">returns-policy.pdf</span><span class=\"ds-where\">p. 2 · Refunds</span></span><span class=\"ds-rel\">relevance<b>0.82</b></span><svg class=\"ds-i ds-chev\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4 6l4 4 4-4\"/></svg></summary><p class=\"ds-excerpt\">Customers may request <mark class=\"ds-hl\" data-c=\"1\">a full refund within 30 days</mark> of the delivery date.</p></details></li><li><details class=\"ds-src\"><summary><span class=\"ds-chip ds-chip-src\" data-c=\"2\">2</span><span class=\"ds-src-title\"><span class=\"ds-file\">returns-policy.pdf</span><span class=\"ds-where\">p. 4 · Exchanges</span></span><span class=\"ds-rel\">relevance<b>0.74</b></span><svg class=\"ds-i ds-chev\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4 6l4 4 4-4\"/></svg></summary><p class=\"ds-excerpt\">Unused items in their original packaging can be <mark class=\"ds-hl\" data-c=\"2\">exchanged within 45 days</mark> of purchase.</p></details></li></ol></div>",
+      "css": "[data-c=\"1\"] { --c: var(--hl-1, #fff0a0); } [data-c=\"2\"] { --c: var(--hl-2, #c9f0d3); } [data-c=\"3\"] { --c: var(--hl-3, #ffd9e4); } [data-c=\"4\"] { --c: var(--hl-4, #d6e6ff); } [data-c=\"5\"] { --c: var(--hl-5, #ffe3c7); } .ds-chip { display: inline-grid; place-items: center; min-width: 19px; height: 16px; padding: 0 4px; border-radius: 5px 9px 6px 10px / 9px 5px 10px 6px; font: 700 10.5px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #1b1d21); background: var(--c, var(--hl-1, #fff0a0)); flex: none; transition: box-shadow 120ms ease; } .ds-chip.ds-on-ink { background: rgba(27, 29, 33, 0.1); } .ds-hl { color: inherit; padding: 0.07em 0.2em 0.11em; border-radius: 0.35em 0.7em 0.4em 0.75em / 0.55em 0.35em 0.65em 0.4em; background-color: transparent; background-image: linear-gradient(var(--c, var(--hl-1, #fff0a0)), var(--c, var(--hl-1, #fff0a0))); background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: box-shadow 120ms ease; } .ds-srcs { max-width: 720px; font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; color: var(--ink, #1b1d21); font-variant-numeric: tabular-nums; } .ds-srcs-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; } .ds-srcs-head h3 { margin: 0; font-size: 14px; font-weight: 700; } .ds-srcs-head span { font-size: 12.5px; color: var(--mute, #6a6f78); } .ds-sources { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line, #e7e8ea); border-radius: 12px; overflow: hidden; background: #fff; } .ds-sources > li + li { border-top: 1px solid var(--line, #e7e8ea); } .ds-src summary { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 14px; list-style: none; cursor: pointer; font-size: 14px; transition: background-color 120ms ease; } .ds-src summary::-webkit-details-marker { display: none; } .ds-src summary:hover { background: #fafafb; } .ds-src summary:hover .ds-chip { box-shadow: 0 0 0 1.5px var(--ink, #1b1d21); } .ds-src summary:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; outline-offset: -2px; } .ds-src-title { display: flex; align-items: baseline; gap: 8px; min-width: 0; } .ds-file { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-where { color: var(--mute, #6a6f78); white-space: nowrap; } .ds-rel { margin-left: auto; padding-left: 8px; font-size: 13px; color: var(--mute, #6a6f78); white-space: nowrap; } .ds-rel b { margin-left: 4px; font-weight: 600; color: var(--ink, #1b1d21); } .ds-src .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-chev { color: var(--mute, #6a6f78); transition: transform 160ms ease; } .ds-src[open] .ds-chev { transform: rotate(180deg); } .ds-excerpt { margin: 0 28px 16px 50px; font: 400 15.5px/1.65 'Source Serif 4', Georgia, serif; color: var(--excerpt-ink, #2b2e34); white-space: pre-wrap; } .ds-excerpt .ds-hl { padding: 0.05em 0.15em 0.08em; } @media (prefers-reduced-motion: reduce) { .ds-src summary, .ds-chev { transition: none; } }"
+    },
+    {
+      "name": "Document Row",
+      "kind": "custom",
+      "refersTo": "document-row",
+      "description": "Library entries on the grey panel: status icon, name, cited chips in the latest answer's inks, a details line, and a trash icon that appears on hover or focus.",
+      "html": "<ul class=\"ds-docs\"><li class=\"ds-doc\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M9 1.5H4.5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V5zM9 1.5V5h3.5\"/></svg><span class=\"ds-doc-name\">returns-policy.pdf</span><span class=\"ds-doc-side\" title=\"Cited as 1, 2 in the latest answer\"><span class=\"ds-chip\" data-c=\"1\">1</span><span class=\"ds-chip\" data-c=\"2\">2</span></span><span class=\"ds-doc-meta\">Indexed · 6 pages · 3 chunks · Upload</span><button type=\"button\" class=\"ds-doc-del\" aria-label=\"Remove returns-policy.pdf\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.5h6.8L12 4\"/></svg></button></li><li class=\"ds-doc ds-processing\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" stroke=\"#d9dbdf\"/><path d=\"M8 2.5A5.5 5.5 0 0 1 13.5 8\"/></svg><span class=\"ds-doc-name\">travel-expenses.md</span><span class=\"ds-doc-side\"></span><span class=\"ds-doc-meta\"><b>Processing</b> · Upload</span><button type=\"button\" class=\"ds-doc-del\" aria-label=\"Remove travel-expenses.md\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 4h11M6 4V2.5h4V4M4 4l.6 9.5h6.8L12 4\"/></svg></button></li></ul>",
+      "css": "[data-c=\"1\"] { --c: var(--hl-1, #fff0a0); } [data-c=\"2\"] { --c: var(--hl-2, #c9f0d3); } [data-c=\"3\"] { --c: var(--hl-3, #ffd9e4); } [data-c=\"4\"] { --c: var(--hl-4, #d6e6ff); } [data-c=\"5\"] { --c: var(--hl-5, #ffe3c7); } .ds-chip { display: inline-grid; place-items: center; min-width: 19px; height: 16px; padding: 0 4px; border-radius: 5px 9px 6px 10px / 9px 5px 10px 6px; font: 700 10.5px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #1b1d21); background: var(--c, var(--hl-1, #fff0a0)); flex: none; transition: box-shadow 120ms ease; } .ds-chip.ds-on-ink { background: rgba(27, 29, 33, 0.1); } .ds-docs { list-style: none; margin: 0; padding: 10px 14px; background: var(--panel, #f7f7f8); display: flex; flex-direction: column; gap: 2px; width: 304px; font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; font-variant-numeric: tabular-nums; } .ds-doc { position: relative; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; column-gap: 10px; padding: 9px 8px; border-radius: 8px; color: var(--mute, #6a6f78); } .ds-doc:hover, .ds-doc:focus-within { background: var(--hover, #eff0f2); } .ds-doc .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-doc > .ds-i { margin-top: 2px; } .ds-processing > .ds-i { color: var(--blue, #2f5bd3); animation: ds-spin 1.1s linear infinite; } @keyframes ds-spin { to { transform: rotate(360deg); } } .ds-doc-name { font-size: 13.5px; font-weight: 600; line-height: 20px; color: var(--ink, #1b1d21); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-doc-side { grid-column: 3; grid-row: 1; display: flex; align-items: center; gap: 3px; padding-left: 8px; } .ds-doc-meta { grid-column: 2 / 4; grid-row: 2; font-size: 12px; line-height: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-doc-meta b { font-weight: 600; color: var(--ink-2, #40444b); } .ds-doc-del { position: absolute; right: 6px; top: 29px; width: 22px; height: 22px; display: grid; place-items: center; border: 0; border-radius: 6px; background: var(--hover, #eff0f2); color: var(--mute, #6a6f78); cursor: pointer; opacity: 0; transition: opacity 120ms ease, color 120ms ease, background-color 120ms ease; } .ds-doc:hover .ds-doc-del, .ds-doc:focus-within .ds-doc-del { opacity: 1; } .ds-doc-del:hover { color: var(--red, #b42318); background: var(--red-wash, #fdecea); } .ds-doc-del:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; } @media (hover: none) { .ds-doc-del { opacity: 1; } } @media (prefers-reduced-motion: reduce) { .ds-processing > .ds-i { animation: none; } .ds-doc-del { transition: none; } }"
+    },
+    {
+      "name": "Drop Zone",
+      "kind": "card",
+      "refersTo": "drop-zone",
+      "description": "White dashed card at the top of the library; accepted types and size limit come from server config. Drag-over turns the border solid blue on blue wash.",
+      "html": "<div class=\"ds-dropwrap\"><div class=\"ds-drop\"><span class=\"ds-drop-icon\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 10.5v-8M5 5.5l3-3 3 3M2.5 10v2A1.5 1.5 0 0 0 4 13.5h8a1.5 1.5 0 0 0 1.5-1.5v-2\"/></svg></span><p><b>Drop PDF, DOCX, TXT or MD</b><span>Up to 10 MB per file</span></p><button type=\"button\" class=\"ds-drop-btn\">Choose files</button></div><div class=\"ds-drop ds-dragover\"><span class=\"ds-drop-icon\"><svg class=\"ds-i\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 10.5v-8M5 5.5l3-3 3 3M2.5 10v2A1.5 1.5 0 0 0 4 13.5h8a1.5 1.5 0 0 0 1.5-1.5v-2\"/></svg></span><p><b>Drop PDF, DOCX, TXT or MD</b><span>Up to 10 MB per file</span></p><button type=\"button\" class=\"ds-drop-btn\">Choose files</button></div></div>",
+      "css": ".ds-dropwrap { display: flex; flex-direction: column; gap: 12px; width: 276px; padding: 14px; background: var(--panel, #f7f7f8); font-family: 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; } .ds-drop { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 12px 18px; border: 1px dashed #c6c9cf; border-radius: 12px; background: #fff; text-align: center; transition: border-color 120ms ease, background-color 120ms ease; } .ds-drop.ds-dragover { border-style: solid; border-color: var(--blue, #2f5bd3); background: var(--blue-wash, #e2e9fb); } .ds-drop-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--panel, #f7f7f8); display: grid; place-items: center; color: var(--ink-2, #40444b); } .ds-drop .ds-i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-drop p { margin: 0; font-size: 13px; color: var(--mute, #6a6f78); } .ds-drop p b { display: block; font-weight: 600; color: var(--ink, #1b1d21); } .ds-drop p span { display: block; margin-top: 1px; font-size: 12.5px; } .ds-drop-btn { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--line-2, #d9dbdf); border-radius: 8px; background: #fff; color: var(--ink, #1b1d21); font: 600 13px/1 'Source Sans 3', system-ui, 'Segoe UI', sans-serif; box-shadow: 0 1px 2px rgba(27, 29, 33, 0.05); cursor: pointer; transition: background-color 120ms ease; } .ds-drop-btn:hover { background: var(--hover, #eff0f2); } .ds-drop-btn:focus-visible { outline: 2px solid var(--blue, #2f5bd3); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Highlighter",
+    "overview": "Highwatch RAG looks like a clean, familiar document tool: a white page, a grey library down the left, a centred reading column, and a question box pinned at the bottom. Its personality lives in one device. Every claim in an answer is marked with a highlighter ink, and that ink belongs to the source the claim came from: the same colour sits on the claim's number, on the source row, on the matched phrase inside the quoted excerpt, and on the document in the library. A reviewer can trace any sentence to its evidence by colour alone.\n\nEverything else stays quiet so the inks can do that work. Neutrals are cool greys on white, separated by 1px hairlines and a change of tone rather than by stacked cards; one action blue carries the primary button, links and focus; type is one humanist sans with a book serif kept for text quoted from documents. Density is that of a desktop productivity app: 14px base text, 13px controls, and a 720px reading column with 17px answer text.\n\nThis world replaced an earlier themed direction (map rulers, survey-sheet page strips, a woodland rail) that the user rejected as dull, odd, and wrong in colour and type, and asked instead for \"clean and premium: a familiar app layout, very polished, personality in the details\". It wears no costume: no textures, motifs or decorative colour, and no dark chat-bubble template. An answer reads as document text under its question heading, not as a message.",
+    "keyCharacteristics": [
+      "White ground, a cool grey library panel, 1px hairlines; flat except for the composer and the toast.",
+      "Five pale highlighter inks used only to mark evidence; citation n wears the same ink everywhere it appears.",
+      "Source Sans 3 for all UI and answers; Source Serif 4 only for quoted excerpts.",
+      "One action blue for the Ask button, links, drag-over and focus.",
+      "Irregular marker-tip corners on evidence (chips and highlight marks); regular 4–12px corners on everything else.",
+      "One authored motion: highlights swipe in, left to right, when an answer lands."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Ink Rule",
+        "body": "The highlighter inks mean \"this came from a source\". They appear only on evidence: highlight marks in answers, citation chips (in the answer, the sources list and the library) and the matched phrase in an excerpt. The only other yellow is the highlighter itself, drawn in the logo mark and in the sweep of the searching bar. Status, hover, selection, buttons and decoration never use an ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Same Colour Everywhere Rule",
+        "body": "Citation n wears ink ((n − 1) % 5) + 1 in every place it appears: its claim, its number, its source row, its excerpt phrase and its document's chip in the library. The ink comes from the number, never from position, file or relevance.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Blue Rule",
+        "body": "Action blue is the only interactive colour, and the Ask button is the only solid blue fill on screen. Secondary actions are white buttons with a Strong Hairline border.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Means Quoted Rule",
+        "body": "Source Serif 4 is used only for text quoted from a document. Never for headings, answers, labels or UI.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "The whole app sets tabular numerals, so relevance scores, counts and citation numbers line up.",
+        "section": "typography"
+      },
+      {
+        "name": "The Questions First Rule",
+        "body": "At ≤820px the order is top bar, thread, composer, library: a reviewer can read the example and ask before scrolling past the upload controls.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Column Rule",
+        "body": "The thread and the composer share the same centred 720px column; nothing in the work area breaks out of it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Two Lifts Rule",
+        "body": "Only the composer and the toast float. Every other surface sits flat on hairlines; a new panel or card gets a 1px Hairline border, not a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Marker Tip Rule",
+        "body": "Irregular corners belong to evidence only (chips and highlight marks). Controls, cards and inputs keep regular radii, and chips never take a regular radius.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Shared Phrase Rule",
+        "body": "A highlight starts at the first word of the longest phrase (three or more words) the claim shares with its source and runs through its citation chip; the excerpt marks only that shared phrase, in the same ink. With no shared phrase, the whole claim is marked.",
+        "section": "components"
+      },
+      {
+        "name": "The One Swipe Rule",
+        "body": "The highlight swipe is the only authored motion. Nothing else slides, fades in or staggers; everything else is instant or a short functional transition.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** derive a citation's ink from its number, ((n − 1) % 5) + 1, and repeat that ink on its claim, chip, source row, excerpt phrase and library chip.",
+      "**Do** start a highlight at the first word of the longest phrase the claim shares with its source (three or more words) and carry it through the citation chip; in the excerpt, mark only that shared phrase. With no shared phrase, mark the whole claim.",
+      "**Do** keep text on an ink in Ink (#1b1d21), and tint a chip that sits on its own ink with 10% Ink instead of repeating the colour.",
+      "**Do** separate regions with 1px hairlines and tone (White Ground against Library Grey), not with extra cards or shadows.",
+      "**Do** set text quoted from a document in Source Serif 4 and everything else in Source Sans 3, with tabular numerals.",
+      "**Do** confirm destructive actions inline in the row they affect (Remove / Keep) and return focus to the trigger when the person keeps the item.",
+      "**Do** keep the highlight swipe as the only authored motion, and stop every animation and transition under reduced motion.",
+      "**Do** put questions first at ≤820px: top bar, thread, sticky composer, then the library."
+    ],
+    "donts": [
+      "**Don't** use a highlighter ink for status, hover, selection, buttons or decoration; the only non-evidence yellow is the highlighter drawn in the logo and in the searching bar.",
+      "**Don't** render answers as chat bubbles or switch to a dark chat template; an answer is document text under its question.",
+      "**Don't** dress the app in a theme (textures, rulers, motif strips, costume colours); the earlier Survey Sheet world was rejected for exactly that.",
+      "**Don't** add a second solid accent button: the Ask button is the only blue fill, and red fills only the inline Remove confirmation.",
+      "**Don't** give controls or cards the irregular swipe or highlight radius, or give chips a regular one.",
+      "**Don't** add shadows beyond the composer lift, the toast float and the 1px button contact shadow.",
+      "**Don't** introduce a display size above the 23px question heading."
+    ]
+  }
+}

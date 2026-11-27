@@ -2,82 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highwatch RAG | Intelligent Knowledge Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highwatch RAG</title>
+    <meta name="description" content="Ask questions about your own documents. Every answer highlights the sources it used.">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='7' fill='%231b1d21'/%3E%3Crect x='6.5' y='12' width='15' height='4.5' rx='2.2' fill='%23fff0a0' transform='rotate(-6 14 14)'/%3E%3Cpath d='M10 8v12M18 8v12' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preload" href="/static/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/static/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Sidebar: Knowledge Hub Control -->
-        <aside class="sidebar">
-            <div class="logo">
-                <div class="logo-icon"><i class="fas fa-brain"></i></div>
-                <span>Highwatch AI</span>
+    <div class="app">
+        <header class="topbar">
+            <div class="brand">
+                <svg class="logo" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="currentColor"/><rect x="6.5" y="12" width="15" height="4.5" rx="2.2" class="logo-ink" transform="rotate(-6 14 14)"/><path d="M10 8v12M18 8v12" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <h1>Highwatch RAG</h1>
+            </div>
+            <div class="topbar-meta">
+                <span class="model-pill" id="model-pill">
+                    <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1.5"/><path d="M6.5 1.5V4M9.5 1.5V4M6.5 12v2.5M9.5 12v2.5M1.5 6.5H4M1.5 9.5H4M12 6.5h2.5M12 9.5h2.5"/></svg>
+                    <span id="model-value">Loading…</span>
+                </span>
+                <span class="status" id="status-indicator" data-state="checking"><i class="status-dot"></i><span id="system-status">Checking…</span></span>
+            </div>
+        </header>
+
+        <aside class="library" id="library" aria-label="Document library">
+            <div class="library-head">
+                <h2>Library</h2>
+                <span id="doc-count" class="count"></span>
             </div>
 
-            <nav class="nav-menu">
-                <div class="nav-section">KNOWLEDGE HUB</div>
-                <button id="sync-btn" class="nav-btn primary">
-                    <i class="fas fa-sync-alt"></i> Sync G-Drive
-                </button>
-                <div class="upload-zone" id="drop-zone" role="button" tabindex="0" aria-label="Upload documents">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <span>Drop files or click</span>
-                    <small id="upload-hint" class="upload-hint">PDF, DOCX, TXT, MD</small>
-                    <input type="file" id="file-input" hidden multiple>
-                </div>
-                <ul id="upload-queue" class="upload-queue" aria-live="polite"></ul>
-            </nav>
-
-            <div class="document-list-container">
-                <div class="nav-section">INDEXED DOCUMENTS <span id="doc-count" class="doc-count">0</span></div>
-                <ul id="document-list" class="document-list">
-                    <li class="loading-docs"><i class="fas fa-spinner fa-spin"></i> Loading knowledge...</li>
-                </ul>
+            <div class="drop" id="drop-zone">
+                <span class="drop-icon"><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 10.5v-8M5 5.5l3-3 3 3M2.5 10v2A1.5 1.5 0 0 0 4 13.5h8a1.5 1.5 0 0 0 1.5-1.5v-2"/></svg></span>
+                <p id="upload-hint"><b>Drop PDF, DOCX, TXT or MD</b><span class="limit">Up to 10 MB per file</span></p>
+                <button type="button" class="btn" id="choose-btn">Choose files</button>
+                <input type="file" id="file-input" class="sr" multiple tabindex="-1" aria-hidden="true">
             </div>
 
-            <div class="sidebar-footer">
-                <div class="status-indicator" id="status-indicator">
-                    <span class="dot pulse"></span>
-                    <span id="system-status">Checking system…</span>
-                </div>
-            </div>
+            <button type="button" id="sync-btn" class="btn wide">
+                <svg class="i sync-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8a5.5 5.5 0 0 1-9.6 3.7M2.5 8a5.5 5.5 0 0 1 9.6-3.7M12.5 1.5v3h-3M3.5 14.5v-3h3"/></svg>
+                <span>Sync Google Drive</span>
+            </button>
+            <p id="sync-note" class="library-note" hidden></p>
+
+            <ul id="upload-queue" class="queue" aria-live="polite" aria-label="Uploads"></ul>
+
+            <ul id="document-list" class="docs" aria-label="Documents">
+                <li class="docs-empty">Loading documents…</li>
+            </ul>
         </aside>
 
-        <!-- Main Content: Chat Interface -->
-        <main class="chat-interface">
-            <header class="chat-header">
-                <h1>Intelligent Document Assistant</h1>
-                <div class="llm-badge" id="llm-badge"><i class="fas fa-microchip"></i> <span>Loading…</span></div>
-            </header>
+        <main class="work">
+            <div id="thread" class="thread">
+                <div class="column" id="column">
+                    <section id="intro" class="intro" aria-labelledby="intro-title">
+                        <h2 class="q" id="intro-title">Ask a question about your documents</h2>
+                        <p class="lede">Answers come only from the files in your library. Each claim is highlighted in the colour of the source it came from, and if the documents don’t cover a question, you’ll be told.</p>
+                        <figure class="example" aria-label="Example of a highlighted answer">
+                            <span class="example-tag">Example</span>
+                            <p class="answer">Customers can request <mark class="hl" data-c="1">a full refund within 30 days<span class="chip on-ink" data-c="1">1</span></mark>, and unused items can be <mark class="hl" data-c="2">exchanged within 45 days<span class="chip on-ink" data-c="2">2</span></mark>.</p>
+                            <ol class="sources">
+                                <li><details class="src" open>
+                                    <summary><span class="chip" data-c="1">1</span><span class="src-title"><span class="file">returns-policy.pdf</span><span class="where">p. 2 · Refunds</span></span><span class="rel">relevance<b>0.82</b></span><svg class="i chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary>
+                                    <p class="excerpt">Customers may request <mark class="hl" data-c="1">a full refund within 30 days</mark> of the delivery date.</p>
+                                </details></li>
+                                <li><details class="src">
+                                    <summary><span class="chip" data-c="2">2</span><span class="src-title"><span class="file">returns-policy.pdf</span><span class="where">p. 4 · Exchanges</span></span><span class="rel">relevance<b>0.74</b></span><svg class="i chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></summary>
+                                    <p class="excerpt">Unused items in their original packaging can be <mark class="hl" data-c="2">exchanged within 45 days</mark> of purchase.</p>
+                                </details></li>
+                            </ol>
+                        </figure>
+                        <p id="intro-status" class="budget"></p>
+                    </section>
+                </div>
+            </div>
 
-            <div id="chat-messages" class="chat-messages" aria-live="polite">
-                <div class="message system">
-                    <div class="avatar"><i class="fas fa-robot"></i></div>
-                    <div class="content">
-                        Hello! I am your AI Knowledge Assistant. Ask me anything about your indexed documents — every answer comes with numbered sources, and I'll tell you when the documents don't cover something.
+            <form id="ask-form" class="composer" autocomplete="off">
+                <div class="column">
+                    <div id="key-row" class="key-row" hidden>
+                        <label for="key-input">This server needs an API key.</label>
+                        <input type="password" id="key-input" autocomplete="off" spellcheck="false" placeholder="API key">
+                        <button type="button" id="key-save" class="btn">Use key</button>
+                        <button type="button" id="key-cancel" class="link-btn">Cancel</button>
+                    </div>
+                    <div class="field">
+                        <label class="sr" for="query-input">Question</label>
+                        <input type="text" id="query-input" name="query" placeholder="Ask about your documents" maxlength="2000">
+                        <button type="submit" id="send-btn" class="ask-btn">
+                            <span id="send-label">Ask</span>
+                            <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3.5M4 7.5l4-4 4 4"/></svg>
+                        </button>
+                    </div>
+                    <div class="hint">
+                        <span id="ask-hint">Loading library…</span>
+                        <span class="hint-key"><kbd>Enter</kbd> to ask</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="chat-input-container">
-                <div class="input-wrapper">
-                    <input type="text" id="query-input" placeholder="Ask a question about your documents..." autocomplete="off" maxlength="2000">
-                    <button id="send-btn" class="send-btn" aria-label="Send question">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-                <p class="input-hint">Answers are grounded in your specific document knowledge base.</p>
-            </div>
+            </form>
         </main>
     </div>
 
-    <!-- Modals / Toast -->
-    <div id="toast" class="toast hidden" role="status"></div>
+    <div id="toast" class="toast" role="status" hidden></div>
 
     <script src="/static/app.js"></script>
 </body>

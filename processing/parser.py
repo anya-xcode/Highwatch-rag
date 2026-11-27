@@ -102,7 +102,11 @@ class DocumentParser:
         except DocumentParseError:
             raise
         except Exception as e:  # noqa: BLE001
-            raise DocumentParseError(f"Could not read the PDF (it may be corrupt or encrypted): {e}") from e
+            # The cause stays chained for the server log; the user gets the recovery step.
+            raise DocumentParseError(
+                "Couldn't read this PDF. If it's password-protected or damaged, "
+                "save it again as a new PDF and upload that."
+            ) from e
 
     def _extract_docx(self, path: Path) -> str:
         """Extract paragraphs and tables from a DOCX in document order.
@@ -117,7 +121,10 @@ class DocumentParser:
 
             doc = DocxDocument(str(path))
         except Exception as e:  # noqa: BLE001
-            raise DocumentParseError(f"Could not read the .docx file: {e}") from e
+            raise DocumentParseError(
+                "Couldn't read this .docx file. If it's damaged, open it in Word, "
+                "save it again and upload that."
+            ) from e
 
         parts: list[str] = []
         for child in doc.element.body.iterchildren():
